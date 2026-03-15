@@ -1,0 +1,50 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'INPUT=$(cat); FILE=$(echo \"$INPUT\" | jq -r \".tool_input.file_path // .tool_input.file_path\"); if echo \"$FILE\" | grep -qE \"(node_modules|dist|build|\\.next|__pycache__|\\.venv|vendor|\\.git)/|\\.(lock|svg|png|jpg|jpeg|gif|ico|woff|woff2|ttf|eot)$\"; then exit 0; fi; if echo \"$FILE\" | grep -qE \"\\.(ts|tsx|js|jsx|py|go)$\"; then echo \"{\\\"additionalContext\\\": \\\"AI Dev OS: Ensure this change complies with the project guidelines. Check CLAUDE.md for the applicable rules.\\\"}\"; fi'",
+            "statusMessage": "AI Dev OS: Guideline check..."
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'INPUT=$(cat); CMD=$(echo \"$INPUT\" | jq -r \".tool_input.command\"); if echo \"$CMD\" | grep -qE \"^git commit\"; then echo \"{\\\"additionalContext\\\": \\\"Please run a guideline check before committing: /ai-dev-os-check\\\"}\"; fi'",
+            "statusMessage": "AI Dev OS: Pre-commit check..."
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'INPUT=$(cat); FILE=$(echo \"$INPUT\" | jq -r \".tool_input.file_path // .tool_input.file_path\"); if echo \"$FILE\" | grep -qE \"ai-dev-os/01_philosophy/\"; then echo \"{\\\"additionalContext\\\": \\\"⚠️ L1 philosophy was modified. Dependency rule: Do not include tool-specific terms (Claude Code, Cursor, etc.) in L1.\\\"}\" ; elif echo \"$FILE\" | grep -qE \"ai-dev-os/02_(principles|decision-criteria)/\"; then echo \"{\\\"additionalContext\\\": \\\"⚠️ L2 principles were modified. Dependency rule: Do not include framework-specific implementation details in L2.\\\"}\" ; fi'",
+            "statusMessage": "AI Dev OS: Layer dependency check..."
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": null,
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'INPUT=$(cat); PROMPT=$(echo \"$INPUT\" | jq -r \".prompt\"); if echo \"$PROMPT\" | grep -qiE \"(rule|guideline|ガイドライン).*(add|change|delete|modify|追加|変更|削除|修正)\"; then echo \"{\\\"additionalContext\\\": \\\"AI Dev OS guideline change detected. Use /ai-dev-os-extract to extract rules via the reverse-engineering method.\\\"}\"; elif echo \"$PROMPT\" | grep -qiE \"(implement|create|add|build|develop|refactor|fix|実装|作成|追加|構築|開発|リファクタ|修正).*(feature|function|module|component|endpoint|api|service|page|機能|関数|モジュール|コンポーネント|エンドポイント|サービス|ページ)\"; then echo \"{\\\"additionalContext\\\": \\\"💡 For guideline-aware implementation, consider using /ai-dev-os-plan to create a plan with compliance checklists before coding.\\\"}\"; fi'",
+            "statusMessage": ""
+          }
+        ]
+      }
+    ]
+  }
+}

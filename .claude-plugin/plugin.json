@@ -1,0 +1,20 @@
+{
+  "name": "ai-dev-os",
+  "description": "AI Dev OS - A development OS for AI-assisted coding. Systematically improves AI development quality through a 4-layer model (Philosophy → Principles → Guidelines → AI Frames).",
+  "version": "1.0.0",
+  "author": {
+    "name": "AI Dev OS",
+    "url": "https://github.com/yunbow"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ai-coding",
+    "guidelines",
+    "development-os",
+    "spec-driven",
+    "context-engineering"
+  ],
+  "engines": {
+    "claude-code": ">=1.0.0"
+  }
+}

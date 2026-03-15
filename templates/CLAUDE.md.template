@@ -1,0 +1,52 @@
+# [Project Name] - Claude Code Guidelines
+
+Write code for this project following AI DEV OS.
+When there are conflicts, higher sections take priority.
+
+<!--
+  AI DEV OS Two-Tier Context Strategy:
+  - This file (static context): 10-15 high-impact guidelines only
+  - Dynamic checks (/ai-dev-os-check, /ai-dev-os-scan, /ai-dev-os-review): verify against ALL guidelines
+
+  Do NOT list every guideline file here — too many rules degrade AI output quality.
+  Only add rules that address real, observed problems in this project.
+-->
+
+## Development Guidelines
+
+### 1. Framework-Specific Guidelines (Highest Priority)
+<!-- AI DEV OS L3: frameworks — include overview + most critical files only -->
+- ai-dev-os/03_guidelines/frameworks/[stack]/overview.md
+- ai-dev-os/03_guidelines/frameworks/[stack]/project-structure.md
+
+### 2. High-Impact Common Guidelines
+<!-- AI DEV OS L3: common — curated for maximum impact, not exhaustive -->
+- ai-dev-os/03_guidelines/common/security.md
+- ai-dev-os/03_guidelines/common/error-handling.md
+- ai-dev-os/03_guidelines/common/code.md
+- ai-dev-os/03_guidelines/common/naming.md
+- ai-dev-os/03_guidelines/common/validation.md
+- ai-dev-os/03_guidelines/common/ai-coding.md
+
+<!--
+  Guidelines NOT listed here but checked by /ai-dev-os-scan:
+  logging.md, testing.md, performance.md, cors.md, env.md,
+  cicd.md, i18n.md, rate-limiting.md
+  Add any of these to static context only if AI repeatedly gets them wrong.
+-->
+
+### 3. Project-Specific Guidelines
+<!-- AI DEV OS L3: project-specific -->
+- docs/guidelines/project-specific/...
+
+## Priority Resolution Rules (CSS Specificity Style)
+
+When rules conflict, resolve by the following priority:
+
+1. [Highest] frameworks/[stack]/*     <- Most specific
+2. [High]    common/*                 <- Common but concrete
+3. [Medium]  project-specific/*       <- Project context
+4. [Low]     02_decision-criteria/*   <- Abstract criteria (not listed above, but AI may reference when uncertain)
+5. [Lowest]  01_philosophy/*          <- Most abstract
+
+Only when there is no explicit rule should you judge based on higher-layer principles.

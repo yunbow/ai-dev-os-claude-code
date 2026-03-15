@@ -1,0 +1,24 @@
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# AI coding tools (user-local config — not part of this repo)
+# NOTE: The following are INTENTIONALLY tracked in this plugin repo:
+#   .claude-plugin/   — Plugin manifest (required for Claude Code plugin system)
+#   templates/CLAUDE.md.template — Template for user's CLAUDE.md (distributed to users)
+#   hooks/hooks.json  — Hook definitions (distributed to users)
+#   settings.json     — Default permission settings (distributed to users)
+.claude/
+CLAUDE.md
+.kiro/
+AGENTS.md
+.cursor/
+.cursorrules
