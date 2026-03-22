@@ -15,11 +15,13 @@ agent: general-purpose
 ## Audit Items
 
 ### 1. Dependency Rules (Clean Architecture Principle)
+
 - Do L1 files contain tool-specific terms? ("Claude Code", "Cursor", "Next.js", etc.)
 - Do L2 files contain framework-specific implementation details?
 - Is the one-way dependency L1 → L2 → L3 → L4 maintained?
 
 ### 2. Expiration Check
+
 - L1: Last updated more than 5 years ago?
 - L2: Last updated more than 3 years ago?
 - L3: Last updated more than 12 months ago?
@@ -27,16 +29,19 @@ agent: general-purpose
 - Use `git log` to get the last update date for each file
 
 ### 3. Traceability
+
 - Does each L3 guideline have a link to an L2 principle?
 - Does each L4 AI Frame have a reference to an L3 guideline?
 - Are there orphaned rules (not linked to any principle)?
 
 ### 4. Coverage
+
 - Do all files referenced in CLAUDE.md actually exist?
 - Are there guidelines for the project's major file patterns?
 - Are there mapped guidelines for each directory under src/?
 
 ### 5. Consistency
+
 - Are there contradictory rules across multiple guidelines?
 - Are naming conventions consistent across all files?
 

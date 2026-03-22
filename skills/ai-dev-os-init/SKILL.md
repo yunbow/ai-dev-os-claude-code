@@ -14,6 +14,7 @@ allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ## Execution Flow
 
 ### 1. Interview the User
+
 - Tech stack (Next.js / Python / Go / etc.)
 - Project scale (personal / team / enterprise)
 - Existing rule files (.cursorrules, CLAUDE.md, .kiro/steering/, etc.)
@@ -35,6 +36,7 @@ Scan the project for existing configuration and rule files:
 | `.github/workflows/*.yml` | Reference CI/CD patterns in L3 common/cicd.md |
 
 For each detected file:
+
 1. Read its content
 2. Extract rules that map to AI Dev OS guideline categories
 3. Present the extracted rules to the user for confirmation
@@ -44,7 +46,7 @@ For each detected file:
 
 Generate the following structure:
 
-```
+```text
 ai-dev-os/
 ├── 01_philosophy/
 │   └── core-values.md          # Minimal placeholder
@@ -63,8 +65,10 @@ ai-dev-os/
 ```
 
 ### 4. Generate CLAUDE.md
+
 - Auto-insert references to the ai-dev-os directory
 - Set up Specificity Cascade
 
 ### 5. Git Submodule Setup (Optional)
+
 - For managing ai-dev-os as a separate repository

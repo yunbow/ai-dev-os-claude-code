@@ -14,16 +14,21 @@ allowed-tools: Read, Grep, Glob, Bash, Write, EnterPlanMode, ExitPlanMode
 ## Execution Flow
 
 ### 1. Enter Plan Mode
+
 Enter plan mode immediately. All analysis happens before any output is produced.
 
 ### 2. Analyze the Request
+
 Parse the user's implementation request and identify:
+
 - **Goal**: What needs to be built or changed
 - **Scope**: New feature / bug fix / refactoring / enhancement
 - **Affected area**: Which parts of the codebase are involved
 
 ### 3. Identify Affected Files
+
 Search the codebase to determine:
+
 - Files that will be **modified**
 - Files that will be **created**
 - Files that will be **deleted**

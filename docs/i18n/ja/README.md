@@ -43,9 +43,9 @@ git submodule add https://github.com/yunbow/ai-dev-os-rules-typescript.git docs/
 git submodule add https://github.com/yunbow/ai-dev-os-plugin-claude-code.git .claude/plugins/ai-dev-os
 ```
 
-3. `hooks/hooks.json` の内容をプロジェクトの `.claude/settings.json` にコピー
-4. **Claude Code チャット**で `/ai-dev-os-init` を実行して4層構造をセットアップ
-5. コーディング開始 — フックが自動的にガイドします
+1. `hooks/hooks.json` の内容をプロジェクトの `.claude/settings.json` にコピー
+2. **Claude Code チャット**で `/ai-dev-os-init` を実行して4層構造をセットアップ
+3. コーディング開始 — フックが自動的にガイドします
 
 詳細は[運用手順書](./docs/operation-guide.md)を参照してください。
 
@@ -86,7 +86,7 @@ git submodule add https://github.com/yunbow/ai-dev-os-plugin-claude-code.git .cl
 <details>
 <summary>パッケージ構造</summary>
 
-```
+```text
 ai-dev-os-plugin-claude-code/
 ├── .claude-plugin/
 │   └── plugin.json              # プラグインマニフェスト

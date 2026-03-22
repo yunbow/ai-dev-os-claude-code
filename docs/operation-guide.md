@@ -72,14 +72,14 @@ Refer to `hooks/hooks.json` for the full hook configuration.
 
 If your `.claude/settings.json` already exists and contains other settings, merge the hooks manually:
 
-**Option A: Manual merge**
+#### Option A: Manual merge
 
 1. Open `hooks/hooks.json` and your `.claude/settings.json` side by side
 2. Copy each array (`PreToolUse`, `PostToolUse`, `UserPromptSubmit`) from `hooks/hooks.json`
 3. If your `settings.json` already has a `hooks` key, **append** the entries to each existing array
 4. If your `settings.json` does not have a `hooks` key, add the entire `hooks` object
 
-**Option B: Using jq (Unix/macOS)**
+#### Option B: Using jq (Unix/macOS)
 
 ```bash
 jq -s '.[0] * {hooks: (.[0].hooks // {} | to_entries + (.[1].hooks | to_entries) | group_by(.key) | map({(.[0].key): [.[] | .value[]] }) | add)}' .claude/settings.json hooks/hooks.json > .claude/settings.merged.json
@@ -94,16 +94,18 @@ mv .claude/settings.merged.json .claude/settings.json
 
 ### Run the Setup Wizard
 
-```
+```text
 /ai-dev-os-init [tech-stack]
 ```
 
 Example:
-```
+
+```text
 /ai-dev-os-init nextjs
 ```
 
 The wizard will:
+
 1. Ask about your tech stack, project scale, and existing rule files
 2. Detect and import existing rules (`.cursorrules`, `CLAUDE.md`, `.eslintrc`)
 3. Generate the 4-layer directory structure
@@ -114,7 +116,7 @@ The wizard will:
 
 After initialization, confirm the structure:
 
-```
+```text
 ai-dev-os/
 ├── 01_philosophy/
 ├── 02_decision-criteria/
@@ -132,11 +134,12 @@ ai-dev-os/
 
 For non-trivial changes, create a guideline-aware plan first:
 
-```
+```text
 /ai-dev-os-plan Add user authentication with JWT
 ```
 
 This will:
+
 1. Analyze your request and identify affected files
 2. Map files to relevant AI Dev OS guidelines
 3. Generate a checklist of applicable rules
@@ -148,11 +151,12 @@ The hook will also suggest `/ai-dev-os-plan` when it detects implementation-rela
 
 When you want to defer implementation — e.g., for team assignment or backlog management — create a ticket instead:
 
-```
+```text
 /ai-dev-os-ticket Add user authentication with JWT
 ```
 
 This will:
+
 1. Perform the same analysis as `/ai-dev-os-plan` (affected files, guideline mapping, checklist)
 2. Ask where to create the ticket (if not configured in CLAUDE.md):
    - **Local file**: saves as `TICKET-001-add-user-auth.md` in the specified directory
@@ -178,6 +182,7 @@ Or for GitHub Issues:
 ### 4.3 Writing Code
 
 Write code as usual. The hooks will automatically:
+
 - Check guideline compliance on every Write/Edit operation
 - Warn about dependency rule violations when editing L1-L2 files
 - Remind you to run compliance checks before committing
@@ -186,11 +191,12 @@ Write code as usual. The hooks will automatically:
 
 Run the compliance check:
 
-```
+```text
 /ai-dev-os-check
 ```
 
 This will:
+
 1. Parse `CLAUDE.md` to find applicable guidelines
 2. Get changed files from `git diff`
 3. Map files to relevant guidelines
@@ -200,11 +206,12 @@ This will:
 
 When you fix AI-generated code during review, extract new rules:
 
-```
+```text
 /ai-dev-os-extract [file-path]
 ```
 
 This will:
+
 1. Analyze the diff to identify *why* changes were made
 2. Generate rule candidates in `MUST` / `MUST NOT` format
 3. Propose target guideline files and L2 principle links
@@ -214,12 +221,13 @@ This will:
 
 When a team member questions a rule:
 
-```
+```text
 /ai-dev-os-why [rule-or-guideline]
 ```
 
 Example:
-```
+
+```text
 /ai-dev-os-why "why is any type prohibited?"
 ```
 
@@ -229,11 +237,12 @@ Example:
 
 ### Monthly: Health Audit
 
-```
+```text
 /ai-dev-os-audit
 ```
 
 Checks:
+
 - Dependency rule compliance (no tool-specific terms in L1, no framework details in L2)
 - Freshness (L1: 5yr, L2: 3yr, L3: 12mo, L4: 4mo)
 - Traceability (L3→L2 links, orphaned rules)
@@ -242,7 +251,7 @@ Checks:
 
 ### Quarterly: SECI Spiral Evolution
 
-```
+```text
 /ai-dev-os-evolve
 ```
 
@@ -250,7 +259,7 @@ Analyzes recent commits and review patterns to propose updates to L1 philosophy 
 
 ### Weekly/Monthly: Compliance Report
 
-```
+```text
 /ai-dev-os-report 1w
 /ai-dev-os-report 1m
 ```

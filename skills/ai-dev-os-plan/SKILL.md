@@ -14,29 +14,37 @@ allowed-tools: Read, Grep, Glob, Bash, EnterPlanMode, ExitPlanMode
 ## Execution Flow
 
 ### 1. Enter Plan Mode
+
 Enter plan mode immediately. All analysis happens before any code is written.
 
 ### 2. Analyze the Request
+
 Parse the user's implementation request and identify:
+
 - **Goal**: What needs to be built or changed
 - **Scope**: New feature / bug fix / refactoring / enhancement
 - **Affected area**: Which parts of the codebase are involved
 
 ### 3. Identify Affected Files
+
 Search the codebase to determine:
+
 - Files that will be **modified**
 - Files that will be **created**
 - Files that will be **deleted**
 - Related files that provide context (imports, tests, configs)
 
 ### 4. Parse CLAUDE.md and Load Guidelines
+
 Extract the list of guideline file paths from the project's CLAUDE.md.
 Read the referenced guideline files to understand the active rules.
 
 ### 5. Build Dynamic Mapping
+
 Map affected files to their relevant guidelines using file pattern matching.
 
 Examples by tech stack:
+
 - **Python**: `*.py` → code.md, naming.md, validation.md; `*/router.py` → security.md, cors.md; `*/models.py` → naming.md, validation.md; `*/schemas.py` → validation.md; `alembic/**` → naming.md
 - **Next.js**: `*.tsx` → ui.md, form.md, code.md, naming.md; `app/**/page.tsx` → routing.md; `app/**/action.ts` → server-actions.md
 - **Go**: `*.go` → code.md, naming.md, error-handling.md
@@ -44,12 +52,15 @@ Examples by tech stack:
 If checklist templates exist in the plugin's `checklist-templates/` directory for the detected tech stack, load them as a reference.
 
 ### 6. Extract Relevant Checklist Items
+
 From the mapped guidelines, extract items that are relevant to **this specific change**:
+
 - Filter by keywords: "MUST", "MUST NOT", "PROHIBITED", "REQUIRED"
 - If a guideline has `checklist: [...]` in frontmatter, use those items
 - Discard items unrelated to the current scope (e.g., skip database rules if no DB changes)
 
 ### 7. Present the Plan
+
 Output the plan in the following format:
 
 ```markdown
@@ -92,13 +103,17 @@ Output the plan in the following format:
 ```
 
 ### 8. Wait for Approval
+
 Ask the user to review and approve the plan. Accept one of:
+
 - **Approve**: Proceed with implementation
 - **Modify**: User requests changes to the plan → update and re-present
 - **Cancel**: Abort without making any changes
 
 ### 9. Exit Plan Mode and Implement
+
 Upon approval:
+
 1. Exit plan mode
 2. Implement each step from the plan
 3. After each file change, mentally check off the relevant guideline items
@@ -113,4 +128,5 @@ Upon approval:
 ```
 
 ### 10. Suggest Follow-up
+
 Recommend the user run `/ai-dev-os-check` for a full compliance verification before committing.

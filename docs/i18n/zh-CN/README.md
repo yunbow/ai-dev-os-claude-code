@@ -43,9 +43,9 @@ git submodule add https://github.com/yunbow/ai-dev-os-rules-typescript.git docs/
 git submodule add https://github.com/yunbow/ai-dev-os-plugin-claude-code.git .claude/plugins/ai-dev-os
 ```
 
-3. 将 `hooks/hooks.json` 中的钩子复制到项目的 `.claude/settings.json`
-4. 在 **Claude Code 聊天**中运行 `/ai-dev-os-init` 设置4层结构
-5. 开始编码 — 钩子会自动引导你
+1. 将 `hooks/hooks.json` 中的钩子复制到项目的 `.claude/settings.json`
+2. 在 **Claude Code 聊天**中运行 `/ai-dev-os-init` 设置4层结构
+3. 开始编码 — 钩子会自动引导你
 
 详见[操作指南](./docs/operation-guide.md)。
 
@@ -86,7 +86,7 @@ git submodule add https://github.com/yunbow/ai-dev-os-plugin-claude-code.git .cl
 <details>
 <summary>包结构</summary>
 
-```
+```text
 ai-dev-os-plugin-claude-code/
 ├── .claude-plugin/
 │   └── plugin.json              # 插件清单

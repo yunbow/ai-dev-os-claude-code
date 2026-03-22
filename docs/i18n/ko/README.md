@@ -43,9 +43,9 @@ git submodule add https://github.com/yunbow/ai-dev-os-rules-typescript.git docs/
 git submodule add https://github.com/yunbow/ai-dev-os-plugin-claude-code.git .claude/plugins/ai-dev-os
 ```
 
-3. `hooks/hooks.json`의 훅을 프로젝트의 `.claude/settings.json`에 복사
-4. **Claude Code 채팅**에서 `/ai-dev-os-init`을 실행하여 4계층 구조 설정
-5. 코딩 시작 — 훅이 자동으로 안내합니다
+1. `hooks/hooks.json`의 훅을 프로젝트의 `.claude/settings.json`에 복사
+2. **Claude Code 채팅**에서 `/ai-dev-os-init`을 실행하여 4계층 구조 설정
+3. 코딩 시작 — 훅이 자동으로 안내합니다
 
 자세한 내용은 [운영 가이드](./docs/operation-guide.md)를 참조하세요.
 
@@ -86,7 +86,7 @@ git submodule add https://github.com/yunbow/ai-dev-os-plugin-claude-code.git .cl
 <details>
 <summary>패키지 구조</summary>
 
-```
+```text
 ai-dev-os-plugin-claude-code/
 ├── .claude-plugin/
 │   └── plugin.json              # 플러그인 매니페스트

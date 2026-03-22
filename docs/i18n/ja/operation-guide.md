@@ -68,14 +68,14 @@ cp -r ai-dev-os-plugin-claude-code/agents/ .claude/agents/
 
 `.claude/settings.json` が既に存在し、他の設定を含んでいる場合は、フックを手動でマージしてください:
 
-**方法A: 手動マージ**
+#### 方法A: 手動マージ
 
 1. `hooks/hooks.json` と `.claude/settings.json` を並べて開く
 2. `hooks/hooks.json` から各配列（`PreToolUse`, `PostToolUse`, `UserPromptSubmit`）をコピー
 3. `settings.json` に既に `hooks` キーがある場合は、各既存配列に**追加**する
 4. `settings.json` に `hooks` キーがない場合は、`hooks` オブジェクト全体を追加する
 
-**方法B: jq を使用（Unix/macOS）**
+#### 方法B: jq を使用（Unix/macOS）
 
 ```bash
 jq -s '.[0] * {hooks: (.[0].hooks // {} | to_entries + (.[1].hooks | to_entries) | group_by(.key) | map({(.[0].key): [.[] | .value[]] }) | add)}' .claude/settings.json hooks/hooks.json > .claude/settings.merged.json
@@ -90,16 +90,18 @@ mv .claude/settings.merged.json .claude/settings.json
 
 ### セットアップウィザードの実行
 
-```
+```text
 /ai-dev-os-init [tech-stack]
 ```
 
 例:
-```
+
+```text
 /ai-dev-os-init nextjs
 ```
 
 ウィザードの動作:
+
 1. 技術スタック、プロジェクト規模、既存ルールファイルをヒアリング
 2. 既存ルールの検出と取り込み（`.cursorrules`, `CLAUDE.md`, `.eslintrc`）
 3. 4層ディレクトリ構造の生成
@@ -110,7 +112,7 @@ mv .claude/settings.merged.json .claude/settings.json
 
 初期化後、以下の構造を確認します:
 
-```
+```text
 ai-dev-os/
 ├── 01_philosophy/
 ├── 02_decision-criteria/
@@ -128,11 +130,12 @@ ai-dev-os/
 
 重要な変更の前に、ガイドライン準拠の計画を作成します:
 
-```
+```text
 /ai-dev-os-plan JWT認証機能を追加
 ```
 
 実行内容:
+
 1. リクエストを分析し、影響を受けるファイルを特定
 2. ファイルと関連する AI Dev OS ガイドラインをマッピング
 3. 適用可能なルールのチェックリストを生成
@@ -144,11 +147,12 @@ ai-dev-os/
 
 実装を後回しにしたい場合（チームへのアサインやバックログ管理など）、チケットを作成します:
 
-```
+```text
 /ai-dev-os-ticket JWT認証機能を追加
 ```
 
 実行内容:
+
 1. `/ai-dev-os-plan` と同じ分析を実行（影響ファイル、ガイドラインマッピング、チェックリスト）
 2. チケットの出力先を確認（CLAUDE.md に設定がない場合）:
    - **ローカルファイル**: 指定ディレクトリに `TICKET-001-add-user-auth.md` として保存
@@ -174,6 +178,7 @@ GitHub Issue の場合:
 ### 4.3 コーディング
 
 通常通りコードを書きます。フックが自動的に:
+
 - Write/Edit のたびにガイドライン準拠をチェック
 - L1-L2ファイル編集時に依存性ルール違反を警告
 - コミット前に準拠チェックの実行をリマインド
@@ -182,11 +187,12 @@ GitHub Issue の場合:
 
 準拠チェックを実行します:
 
-```
+```text
 /ai-dev-os-check
 ```
 
 実行内容:
+
 1. `CLAUDE.md` をパースして適用可能なガイドラインを検出
 2. `git diff` から変更ファイルを取得
 3. ファイルと関連ガイドラインのマッピング構築
@@ -196,11 +202,12 @@ GitHub Issue の場合:
 
 AIが生成したコードをレビューで修正した場合、新ルールを抽出します:
 
-```
+```text
 /ai-dev-os-extract [file-path]
 ```
 
 実行内容:
+
 1. 差分を分析して「なぜ変更したか」を特定
 2. `MUST` / `MUST NOT` 形式でルール候補を生成
 3. 追加先ガイドラインファイルとL2原則リンクを提案
@@ -210,12 +217,13 @@ AIが生成したコードをレビューで修正した場合、新ルールを
 
 チームメンバーがルールに疑問を持った時:
 
-```
+```text
 /ai-dev-os-why [rule-or-guideline]
 ```
 
 例:
-```
+
+```text
 /ai-dev-os-why "なぜany型が禁止なの？"
 ```
 
@@ -225,11 +233,12 @@ AIが生成したコードをレビューで修正した場合、新ルールを
 
 ### 月次: 健全性監査
 
-```
+```text
 /ai-dev-os-audit
 ```
 
 チェック項目:
+
 - 依存性ルール（L1にツール固有語がないか、L2にフレームワーク詳細がないか）
 - 賞味期限（L1: 5年、L2: 3年、L3: 12ヶ月、L4: 4ヶ月）
 - トレーサビリティ（L3→L2リンク、孤立ルール）
@@ -238,7 +247,7 @@ AIが生成したコードをレビューで修正した場合、新ルールを
 
 ### 四半期: SECI螺旋進化
 
-```
+```text
 /ai-dev-os-evolve
 ```
 
@@ -246,7 +255,7 @@ AIが生成したコードをレビューで修正した場合、新ルールを
 
 ### 週次/月次: 準拠レポート
 
-```
+```text
 /ai-dev-os-report 1w
 /ai-dev-os-report 1m
 ```

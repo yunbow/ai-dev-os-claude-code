@@ -43,9 +43,9 @@ git submodule add https://github.com/yunbow/ai-dev-os-rules-typescript.git docs/
 git submodule add https://github.com/yunbow/ai-dev-os-plugin-claude-code.git .claude/plugins/ai-dev-os
 ```
 
-3. Copy the hooks from `hooks/hooks.json` into your project's `.claude/settings.json`
-4. Run `/ai-dev-os-init` in **Claude Code chat** to set up the 4-layer structure
-5. Start coding — hooks will guide you automatically
+1. Copy the hooks from `hooks/hooks.json` into your project's `.claude/settings.json`
+2. Run `/ai-dev-os-init` in **Claude Code chat** to set up the 4-layer structure
+3. Start coding — hooks will guide you automatically
 
 See [Operation Guide](./docs/operation-guide.md) for detailed instructions.
 
@@ -86,7 +86,7 @@ See [Operation Guide](./docs/operation-guide.md) for detailed instructions.
 <details>
 <summary>Package Structure</summary>
 
-```
+```text
 ai-dev-os-plugin-claude-code/
 ├── .claude-plugin/
 │   └── plugin.json              # Plugin manifest

@@ -223,6 +223,7 @@ Ejemplo:
 ```
 
 Verificaciones:
+
 - Cumplimiento de reglas de dependencia (sin términos específicos de herramientas en L1, sin detalles de framework en L2)
 - Frescura (L1: 5 años, L2: 3 años, L3: 12 meses, L4: 4 meses)
 - Trazabilidad (enlaces L3→L2, reglas huérfanas)

@@ -60,7 +60,7 @@ cp -r ai-dev-os-plugin-claude-code/agents/ .claude/agents/
 
 `.claude/settings.json`이 이미 존재하고 다른 설정을 포함하고 있는 경우, 훅을 수동으로 병합하세요:
 
-**방법A: 수동 병합**
+#### 방법A: 수동 병합
 
 1. `hooks/hooks.json`과 `.claude/settings.json`을 나란히 열기
 2. `hooks/hooks.json`에서 각 배열(`PreToolUse`, `PostToolUse`, `UserPromptSubmit`)을 복사
@@ -75,16 +75,18 @@ cp -r ai-dev-os-plugin-claude-code/agents/ .claude/agents/
 
 ### 설정 마법사 실행
 
-```
+```text
 /ai-dev-os-init [tech-stack]
 ```
 
 예시:
-```
+
+```text
 /ai-dev-os-init nextjs
 ```
 
 마법사가 수행하는 작업:
+
 1. 기술 스택, 프로젝트 규모, 기존 규칙 파일에 대해 질문
 2. 기존 규칙 감지 및 가져오기 (`.cursorrules`, `CLAUDE.md`, `.eslintrc`)
 3. 4계층 디렉토리 구조 생성
@@ -95,7 +97,7 @@ cp -r ai-dev-os-plugin-claude-code/agents/ .claude/agents/
 
 초기화 후 다음 구조를 확인합니다:
 
-```
+```text
 ai-dev-os/
 ├── 01_philosophy/
 ├── 02_decision-criteria/
@@ -113,11 +115,12 @@ ai-dev-os/
 
 중요한 변경의 경우, 가이드라인 기반 계획을 먼저 생성합니다:
 
-```
+```text
 /ai-dev-os-plan JWT 사용자 인증 추가
 ```
 
 수행 내용:
+
 1. 요청을 분석하고 영향받는 파일 식별
 2. 파일을 관련 AI Dev OS 가이드라인에 매핑
 3. 적용 가능한 규칙의 체크리스트 생성
@@ -129,11 +132,12 @@ ai-dev-os/
 
 구현을 나중으로 미루고 싶을 때(팀 배정이나 백로그 관리 등) 티켓을 생성합니다:
 
-```
+```text
 /ai-dev-os-ticket JWT 사용자 인증 추가
 ```
 
 수행 내용:
+
 1. `/ai-dev-os-plan`과 동일한 분석 수행 (영향 파일, 가이드라인 매핑, 체크리스트)
 2. 티켓 출력 대상 확인 (CLAUDE.md에 설정이 없는 경우):
    - **로컬 파일**: 지정 디렉토리에 `TICKET-001-add-user-auth.md`로 저장
@@ -159,6 +163,7 @@ GitHub Issue의 경우:
 ### 4.3 코드 작성
 
 평소처럼 코드를 작성합니다. 훅이 자동으로:
+
 - 매 Write/Edit 작업마다 가이드라인 준수를 검사
 - L1-L2 파일 편집 시 의존성 규칙 위반 경고
 - 커밋 전 준수 검사 실행 알림
@@ -167,11 +172,12 @@ GitHub Issue의 경우:
 
 준수 검사를 실행합니다:
 
-```
+```text
 /ai-dev-os-check
 ```
 
 수행 내용:
+
 1. `CLAUDE.md`를 파싱하여 적용 가능한 가이드라인 찾기
 2. `git diff`에서 변경 파일 가져오기
 3. 파일을 관련 가이드라인에 매핑
@@ -181,11 +187,12 @@ GitHub Issue의 경우:
 
 리뷰에서 AI가 생성한 코드를 수정했을 때 새 규칙을 추출합니다:
 
-```
+```text
 /ai-dev-os-extract [file-path]
 ```
 
 수행 내용:
+
 1. 차이를 분석하여 *왜* 변경했는지 식별
 2. `MUST` / `MUST NOT` 형식으로 규칙 후보 생성
 3. 대상 가이드라인 파일과 L2 원칙 링크 제안
@@ -195,12 +202,13 @@ GitHub Issue의 경우:
 
 팀 구성원이 규칙에 의문이 있을 때:
 
-```
+```text
 /ai-dev-os-why [rule-or-guideline]
 ```
 
 예시:
-```
+
+```text
 /ai-dev-os-why "왜 any 타입이 금지인가요?"
 ```
 
@@ -210,11 +218,12 @@ GitHub Issue의 경우:
 
 ### 월간: 건전성 감사
 
-```
+```text
 /ai-dev-os-audit
 ```
 
 검사 항목:
+
 - 의존성 규칙 준수 (L1에 도구 특정 용어 없음, L2에 프레임워크 세부사항 없음)
 - 신선도 (L1: 5년, L2: 3년, L3: 12개월, L4: 4개월)
 - 추적 가능성 (L3→L2 링크, 고립된 규칙)
@@ -223,7 +232,7 @@ GitHub Issue의 경우:
 
 ### 분기별: SECI 나선 진화
 
-```
+```text
 /ai-dev-os-evolve
 ```
 
@@ -231,7 +240,7 @@ GitHub Issue의 경우:
 
 ### 주간/월간: 준수 보고서
 
-```
+```text
 /ai-dev-os-report 1w
 /ai-dev-os-report 1m
 ```

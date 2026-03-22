@@ -15,19 +15,24 @@ agent: general-purpose
 ## Execution Flow
 
 ### 1. Analyze Recent N Commits/PRs
+
 - Aggregate past results from guideline-checker
 - Identify frequently occurring violation patterns
 - Also detect patterns where "AI performed surprisingly well"
 
 ### 2. Abstract Patterns
+
 Derive principles from individual cases:
+
 - "auth() forgotten 3 times" → Strengthen principle "Authentication should be explicit, not implicit"
 - "AI writes zod schemas accurately" → Confirm L3 rule is effective
 
 ### 3. Propose L1-L2 Updates
+
 - Candidates for new principles
 - Candidates for rewording existing principles
 - Values discovered at the philosophy level
 
 ### 4. Report + Present Diff
+
 Ask "Would you like to apply the following updates?" and apply after approval.

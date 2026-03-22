@@ -5,10 +5,12 @@
 ## 貢献方法
 
 ### 問題の報告
+
 - [GitHub Issues](https://github.com/yunbow/ai-dev-os-plugin-claude-code/issues) をご利用ください
 - 影響を受けるスキル、フック、またはエージェントを明記してください
 
 ### プルリクエスト
+
 1. リポジトリをフォークする
 2. フィーチャーブランチを作成する
 3. 変更を加える
@@ -43,6 +45,7 @@
 ### クロスプラグイン機能の同等性
 
 このプラグインに新機能を追加する際は、以下への同等機能の追加も検討してください：
+
 - [ai-dev-os-plugin-kiro](https://github.com/yunbow/ai-dev-os-plugin-kiro)（ステアリングルールとして）
 - [ai-dev-os-plugin-cursor](https://github.com/yunbow/ai-dev-os-plugin-cursor)（.mdc ルールとして）
 

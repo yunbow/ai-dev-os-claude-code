@@ -17,21 +17,26 @@ agent: general-purpose
 ## Execution Flow
 
 ### 1. Determine Base Branch
+
 - Use the argument as the base branch (default: `main`)
 - Get all changed files: `git diff [base]...HEAD --name-only`
 - Get commit messages: `git log [base]...HEAD --oneline`
 
 ### 2. Parse CLAUDE.md
+
 Extract the list of guideline file paths from CLAUDE.md.
 Also load L1 philosophy and L2 principles files for design-level review.
 
 ### 3. L3 Guideline Compliance Check
+
 Run the same checks as `/ai-dev-os-check [base-branch]`:
+
 - Build file-to-guideline mapping
 - Extract and verify check items
 - Collect violations and review items
 
 ### 4. L2 Design Review
+
 For each changed file, evaluate higher-level design concerns:
 
 - **Single Responsibility**: Does each module/function have one clear purpose?
@@ -42,12 +47,16 @@ For each changed file, evaluate higher-level design concerns:
 - **Testability**: Is the design easy to test?
 
 ### 5. L1 Philosophy Alignment
+
 Check whether the overall change aligns with the project's core values:
+
 - Does this change serve the stated philosophical goals?
 - Are there trade-offs that conflict with core values?
 
 ### 6. PR Description Draft (Optional)
+
 If the review passes, offer to draft a PR description:
+
 - Summary of changes
 - Design decisions and rationale
 - Guideline compliance status

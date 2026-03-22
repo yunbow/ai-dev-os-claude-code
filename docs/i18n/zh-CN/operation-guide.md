@@ -60,7 +60,7 @@ cp -r ai-dev-os-plugin-claude-code/agents/ .claude/agents/
 
 如果 `.claude/settings.json` 已经存在并包含其他设置，请手动合并钩子：
 
-**方法A：手动合并**
+#### 方法A：手动合并
 
 1. 并排打开 `hooks/hooks.json` 和 `.claude/settings.json`
 2. 从 `hooks/hooks.json` 复制每个数组（`PreToolUse`、`PostToolUse`、`UserPromptSubmit`）
@@ -75,16 +75,18 @@ cp -r ai-dev-os-plugin-claude-code/agents/ .claude/agents/
 
 ### 运行设置向导
 
-```
+```text
 /ai-dev-os-init [tech-stack]
 ```
 
 示例：
-```
+
+```text
 /ai-dev-os-init nextjs
 ```
 
 向导将会：
+
 1. 询问你的技术栈、项目规模和现有规则文件
 2. 检测并导入现有规则（`.cursorrules`、`CLAUDE.md`、`.eslintrc`）
 3. 生成4层目录结构
@@ -95,7 +97,7 @@ cp -r ai-dev-os-plugin-claude-code/agents/ .claude/agents/
 
 初始化后，确认以下结构：
 
-```
+```text
 ai-dev-os/
 ├── 01_philosophy/
 ├── 02_decision-criteria/
@@ -113,11 +115,12 @@ ai-dev-os/
 
 对于重要的更改，先创建指南感知的计划：
 
-```
+```text
 /ai-dev-os-plan 添加JWT用户认证
 ```
 
 这将会：
+
 1. 分析你的请求并识别受影响的文件
 2. 将文件映射到相关的 AI Dev OS 指南
 3. 生成适用规则的检查清单
@@ -129,11 +132,12 @@ ai-dev-os/
 
 当你想推迟实现时（例如分配给团队成员或进行待办管理），可以创建工单：
 
-```
+```text
 /ai-dev-os-ticket 添加JWT用户认证
 ```
 
 这将会：
+
 1. 执行与 `/ai-dev-os-plan` 相同的分析（受影响文件、指南映射、检查清单）
 2. 询问工单的输出目标（如果 CLAUDE.md 中未配置）：
    - **本地文件**：在指定目录中保存为 `TICKET-001-add-user-auth.md`
@@ -159,6 +163,7 @@ GitHub Issue 的情况：
 ### 4.3 编写代码
 
 照常编写代码。钩子会自动：
+
 - 在每次 Write/Edit 操作时检查指南合规性
 - 编辑 L1-L2 文件时警告依赖规则违反
 - 在提交前提醒运行合规检查
@@ -167,11 +172,12 @@ GitHub Issue 的情况：
 
 运行合规检查：
 
-```
+```text
 /ai-dev-os-check
 ```
 
 这将会：
+
 1. 解析 `CLAUDE.md` 以找到适用的指南
 2. 从 `git diff` 获取变更文件
 3. 将文件映射到相关指南
@@ -181,11 +187,12 @@ GitHub Issue 的情况：
 
 当你在审查中修复了 AI 生成的代码时，提取新规则：
 
-```
+```text
 /ai-dev-os-extract [file-path]
 ```
 
 这将会：
+
 1. 分析差异以识别*为什么*进行了更改
 2. 以 `MUST` / `MUST NOT` 格式生成规则候选
 3. 提议目标指南文件和 L2 原则链接
@@ -195,12 +202,13 @@ GitHub Issue 的情况：
 
 当团队成员对规则有疑问时：
 
-```
+```text
 /ai-dev-os-why [rule-or-guideline]
 ```
 
 示例：
-```
+
+```text
 /ai-dev-os-why "为什么禁止使用 any 类型？"
 ```
 
@@ -210,11 +218,12 @@ GitHub Issue 的情况：
 
 ### 每月：健康审计
 
-```
+```text
 /ai-dev-os-audit
 ```
 
 检查项目：
+
 - 依赖规则合规性（L1 中无工具特定术语，L2 中无框架详情）
 - 时效性（L1：5年，L2：3年，L3：12个月，L4：4个月）
 - 可追溯性（L3→L2 链接，孤立规则）
@@ -223,7 +232,7 @@ GitHub Issue 的情况：
 
 ### 每季度：SECI 螺旋进化
 
-```
+```text
 /ai-dev-os-evolve
 ```
 
@@ -231,7 +240,7 @@ GitHub Issue 的情况：
 
 ### 每周/每月：合规报告
 
-```
+```text
 /ai-dev-os-report 1w
 /ai-dev-os-report 1m
 ```
