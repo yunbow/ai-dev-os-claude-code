@@ -1,5 +1,6 @@
 # AI Dev OS Plugin — Claude Code
 
+[![Lint & Link Check](https://github.com/yunbow/ai-dev-os-plugin-claude-code/actions/workflows/lint.yml/badge.svg)](https://github.com/yunbow/ai-dev-os-plugin-claude-code/actions/workflows/lint.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](../../../LICENSE)
 
 将 **AI Dev OS** 的4层模型作为 Claude Code 的 Skills / Hooks / Sub-agents 来执行的插件。
