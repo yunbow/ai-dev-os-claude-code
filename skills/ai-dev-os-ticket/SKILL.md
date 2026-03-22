@@ -74,6 +74,7 @@ Look for a `## Ticket Settings` section in the project's CLAUDE.md.
 **If NOT found**, ask the user:
 
 > Where should the ticket be created?
+>
 > 1. **Local file** — specify the directory path (e.g., `docs/tickets/phase1`)
 > 2. **GitHub Issue** — creates an issue via `gh issue create`
 
