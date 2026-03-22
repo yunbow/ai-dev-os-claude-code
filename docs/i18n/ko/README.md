@@ -16,6 +16,8 @@ AI Dev OS 가이드라인을 Claude Code의 **자동화 워크플로우**로 변
 - **Lifecycle Hooks** — 코드 변경 시 자동 검사, 커밋 전 리마인더
 - **원 커맨드 설정** — `npx ai-dev-os init --rules typescript --plugin claude-code`
 
+![AI Dev OS Check & Fix Report](../../../docs/images/ai-dev-os-check.png)
+
 ## 빠른 시작
 
 ```bash

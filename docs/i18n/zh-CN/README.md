@@ -16,6 +16,8 @@
 - **Lifecycle Hooks** — 代码变更时自动检查、提交前提醒
 - **一条命令安装** — `npx ai-dev-os init --rules typescript --plugin claude-code`
 
+![AI Dev OS Check & Fix Report](../../../docs/images/ai-dev-os-check.png)
+
 ## 快速开始
 
 ```bash

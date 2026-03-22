@@ -16,6 +16,8 @@ Turn AI Dev OS guidelines into **automated workflows** for Claude Code:
 - **Lifecycle Hooks** — Auto-check on code changes, pre-commit reminders
 - **One command setup** — `npx ai-dev-os init --rules typescript --plugin claude-code`
 
+![AI Dev OS Check & Fix Report](docs/images/ai-dev-os-check.png)
+
 ## Quick Start
 
 ```bash

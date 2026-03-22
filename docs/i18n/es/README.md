@@ -16,6 +16,8 @@ Convierte las directrices de AI Dev OS en **flujos de trabajo automatizados** pa
 - **Lifecycle Hooks** — Verificacion automatica en cambios de codigo, recordatorios pre-commit
 - **Un solo comando** — `npx ai-dev-os init --rules typescript --plugin claude-code`
 
+![AI Dev OS Check & Fix Report](../../../docs/images/ai-dev-os-check.png)
+
 ## Inicio rapido
 
 ```bash
