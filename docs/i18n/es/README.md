@@ -1,6 +1,6 @@
 # AI Dev OS Plugin — Claude Code
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](../../../LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](../../../LICENSE)
 
 Un plugin de Claude Code que convierte el modelo de 4 capas de **AI Dev OS** en Skills, Hooks y Sub-agents ejecutables.
 
@@ -124,12 +124,13 @@ Cuando las reglas entran en conflicto: especifico del framework > comun > especi
 
 | Repositorio | Descripcion |
 |---|---|
-| [ai-dev-os](https://github.com/yunbow/ai-dev-os) | Especificacion y teoria del framework |
-| [ai-dev-os-rules-typescript](https://github.com/yunbow/ai-dev-os-rules-typescript) | Directrices TypeScript / Next.js / Node.js |
-| [ai-dev-os-rules-python](https://github.com/yunbow/ai-dev-os-rules-python) | Directrices Python / FastAPI |
-| [ai-dev-os-plugin-kiro](https://github.com/yunbow/ai-dev-os-plugin-kiro) | Steering Rules y Hooks para Kiro |
-| [ai-dev-os-plugin-cursor](https://github.com/yunbow/ai-dev-os-plugin-cursor) | Cursor Rules (.mdc) |
-| [ai-dev-os-cli](https://github.com/yunbow/ai-dev-os-cli) | Automatizacion de configuracion — `npx ai-dev-os init` |
+| [ai-dev-os](https://github.com/yunbow/ai-dev-os) | Framework specification and theory |
+| [rules-typescript](https://github.com/yunbow/ai-dev-os-rules-typescript) | TypeScript / Next.js / Node.js guidelines |
+| [rules-python](https://github.com/yunbow/ai-dev-os-rules-python) | Python / FastAPI guidelines |
+| [plugin-kiro](https://github.com/yunbow/ai-dev-os-plugin-kiro) | Steering Rules and Hooks for Kiro |
+| [plugin-cursor](https://github.com/yunbow/ai-dev-os-plugin-cursor) | Cursor Rules (.mdc) |
+| [cli](https://github.com/yunbow/ai-dev-os-cli) | `npx ai-dev-os init` |
+| [benchmark](https://github.com/yunbow/ai-dev-os-benchmark) | Quantitative benchmark — guideline impact data |
 
 ## Licencia
 
