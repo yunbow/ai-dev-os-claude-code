@@ -4,7 +4,7 @@ A minimal configuration template for AI Dev OS.
 
 ## Structure
 
-```
+```text
 ai-dev-os/
 └── 03_guidelines/
     └── common/

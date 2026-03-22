@@ -30,13 +30,16 @@ Search the codebase to determine:
 - Related files that provide context (imports, tests, configs)
 
 ### 4. Parse CLAUDE.md and Load Guidelines
+
 Extract the list of guideline file paths from the project's CLAUDE.md.
 Read the referenced guideline files to understand the active rules.
 
 ### 5. Build Dynamic Mapping
+
 Map affected files to their relevant guidelines using file pattern matching.
 
 Examples by tech stack:
+
 - **Python**: `*.py` → code.md, naming.md, validation.md; `*/router.py` → security.md, cors.md; `*/models.py` → naming.md, validation.md; `*/schemas.py` → validation.md; `alembic/**` → naming.md
 - **Next.js**: `*.tsx` → ui.md, form.md, code.md, naming.md; `app/**/page.tsx` → routing.md; `app/**/action.ts` → server-actions.md
 - **Go**: `*.go` → code.md, naming.md, error-handling.md
@@ -44,15 +47,19 @@ Examples by tech stack:
 If checklist templates exist in the plugin's `checklist-templates/` directory for the detected tech stack, load them as a reference.
 
 ### 6. Extract Relevant Checklist Items
+
 From the mapped guidelines, extract items that are relevant to **this specific change**:
+
 - Filter by keywords: "MUST", "MUST NOT", "PROHIBITED", "REQUIRED"
 - If a guideline has `checklist: [...]` in frontmatter, use those items
 - Discard items unrelated to the current scope (e.g., skip database rules if no DB changes)
 
 ### 7. Determine Ticket Output Destination
+
 Look for a `## Ticket Settings` section in the project's CLAUDE.md.
 
 **If found**, parse the settings:
+
 ```markdown
 ## Ticket Settings
 - output: file                      # "file" or "github-issue"
@@ -60,6 +67,7 @@ Look for a `## Ticket Settings` section in the project's CLAUDE.md.
 ```
 
 **If NOT found**, ask the user:
+
 > Where should the ticket be created?
 > 1. **Local file** — specify the directory path (e.g., `docs/tickets/phase1`)
 > 2. **GitHub Issue** — creates an issue via `gh issue create`
@@ -67,6 +75,7 @@ Look for a `## Ticket Settings` section in the project's CLAUDE.md.
 Wait for the user's answer before proceeding.
 
 ### 8. Present the Ticket Preview
+
 Before creating the ticket, show a preview and ask for approval.
 
 Output the preview in the following format:
@@ -115,6 +124,7 @@ Output the preview in the following format:
 ```
 
 Ask the user to review:
+
 - **Approve**: Create the ticket
 - **Modify**: User requests changes → update and re-present
 - **Cancel**: Abort without creating anything
@@ -148,6 +158,7 @@ Report the created file path to the user.
 #### 9b. GitHub Issue (`output: github-issue`)
 
 Create a GitHub Issue using:
+
 ```bash
 gh issue create --title "TICKET-{NNN}-{slug}: [One-line summary]" --body "..."
 ```
@@ -159,9 +170,11 @@ The body is the approved preview content (Goal through Principles).
 Report the created issue URL to the user.
 
 ### 10. Exit Plan Mode
+
 Exit plan mode after the ticket is created. Do NOT proceed to implementation.
 
 ### 11. Suggest Follow-up
+
 Inform the user:
 > Ticket created. When ready to implement, use `/ai-dev-os-plan` with this ticket as context,
 > or assign it to a team member / future session.

@@ -14,26 +14,31 @@ allowed-tools: Read, Grep, Glob
 ## Execution Flow
 
 ### 1. Parse the User's Question
+
 Identify the relevant L3 guideline rule from the question.
 (e.g., "Why is `any` prohibited?" → the `any`-related rule in common/code.md)
 
 ### 2. Load L3 Guideline
+
 Retrieve the relevant rule and its context.
 
 ### 3. Reference L2 Principles
+
 - Find the principle referenced by the guideline (via traceability links)
 - If no link exists, infer from content
 
 ### 4. Reference L1 Philosophy
+
 Identify the philosophical value that the principle is rooted in.
 
 ### 5. Provide Examples
+
 - Concrete examples of what happens without this rule
 - Before/After code snippets
 
 ## Output Format
 
-```
+```text
 📖 Rule: [Rule content]
 📁 Source: [Guideline file]
 

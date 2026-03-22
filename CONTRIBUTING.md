@@ -5,10 +5,12 @@ Thank you for your interest in contributing!
 ## How to Contribute
 
 ### Reporting Issues
+
 - Use [GitHub Issues](https://github.com/yunbow/ai-dev-os-plugin-claude-code/issues)
 - Specify which skill, hook, or agent is affected
 
 ### Pull Requests
+
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
@@ -43,6 +45,7 @@ Thank you for your interest in contributing!
 ### Cross-Plugin Feature Parity
 
 When adding a new feature to this plugin, consider adding the equivalent to:
+
 - [ai-dev-os-plugin-kiro](https://github.com/yunbow/ai-dev-os-plugin-kiro) (as steering rule)
 - [ai-dev-os-plugin-cursor](https://github.com/yunbow/ai-dev-os-plugin-cursor) (as .mdc rule)
 

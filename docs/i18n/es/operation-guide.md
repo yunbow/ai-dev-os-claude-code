@@ -60,7 +60,7 @@ Consulta `hooks/hooks.json` para la configuración completa de hooks.
 
 Si tu `.claude/settings.json` ya existe y contiene otras configuraciones, fusiona los hooks manualmente:
 
-**Opción A: Fusión manual**
+#### Opción A: Fusión manual
 
 1. Abre `hooks/hooks.json` y tu `.claude/settings.json` lado a lado
 2. Copia cada array (`PreToolUse`, `PostToolUse`, `UserPromptSubmit`) de `hooks/hooks.json`
@@ -75,16 +75,18 @@ Si tu `.claude/settings.json` ya existe y contiene otras configuraciones, fusion
 
 ### Ejecutar el asistente de configuración
 
-```
+```text
 /ai-dev-os-init [tech-stack]
 ```
 
 Ejemplo:
-```
+
+```text
 /ai-dev-os-init nextjs
 ```
 
 El asistente:
+
 1. Preguntará sobre tu stack tecnológico, escala del proyecto y archivos de reglas existentes
 2. Detectará e importará reglas existentes (`.cursorrules`, `CLAUDE.md`, `.eslintrc`)
 3. Generará la estructura de directorios de 4 capas
@@ -95,7 +97,7 @@ El asistente:
 
 Después de la inicialización, confirma la estructura:
 
-```
+```text
 ai-dev-os/
 ├── 01_philosophy/
 ├── 02_decision-criteria/
@@ -113,11 +115,12 @@ ai-dev-os/
 
 Para cambios importantes, crea primero un plan con directrices:
 
-```
+```text
 /ai-dev-os-plan Añadir autenticación de usuario con JWT
 ```
 
 Esto:
+
 1. Analiza tu solicitud e identifica los archivos afectados
 2. Mapea archivos a directrices relevantes de AI Dev OS
 3. Genera una checklist de reglas aplicables
@@ -129,11 +132,12 @@ El hook también sugerirá `/ai-dev-os-plan` cuando detecte prompts relacionados
 
 Cuando quieras diferir la implementación — por ejemplo, para asignación al equipo o gestión del backlog — crea un ticket:
 
-```
+```text
 /ai-dev-os-ticket Añadir autenticación de usuario con JWT
 ```
 
 Esto:
+
 1. Realiza el mismo análisis que `/ai-dev-os-plan` (archivos afectados, mapeo de directrices, checklist)
 2. Pregunta dónde crear el ticket (si no está configurado en CLAUDE.md):
    - **Archivo local**: guarda como `TICKET-001-add-user-auth.md` en el directorio especificado
@@ -159,6 +163,7 @@ Para GitHub Issues:
 ### 4.3 Escribir código
 
 Escribe código como de costumbre. Los hooks automáticamente:
+
 - Verifican el cumplimiento de directrices en cada operación Write/Edit
 - Advierten sobre violaciones de reglas de dependencia al editar archivos L1-L2
 - Recuerdan ejecutar verificaciones de cumplimiento antes de hacer commit
@@ -167,11 +172,12 @@ Escribe código como de costumbre. Los hooks automáticamente:
 
 Ejecuta la verificación de cumplimiento:
 
-```
+```text
 /ai-dev-os-check
 ```
 
 Esto:
+
 1. Analiza `CLAUDE.md` para encontrar directrices aplicables
 2. Obtiene archivos modificados de `git diff`
 3. Mapea archivos a directrices relevantes
@@ -181,11 +187,12 @@ Esto:
 
 Cuando corriges código generado por IA durante la revisión, extrae nuevas reglas:
 
-```
+```text
 /ai-dev-os-extract [file-path]
 ```
 
 Esto:
+
 1. Analiza el diff para identificar *por qué* se realizaron los cambios
 2. Genera candidatos de reglas en formato `MUST` / `MUST NOT`
 3. Propone archivos de directrices objetivo y enlaces a principios L2
@@ -195,12 +202,13 @@ Esto:
 
 Cuando un miembro del equipo cuestiona una regla:
 
-```
+```text
 /ai-dev-os-why [rule-or-guideline]
 ```
 
 Ejemplo:
-```
+
+```text
 /ai-dev-os-why "¿por qué está prohibido el tipo any?"
 ```
 
@@ -210,7 +218,7 @@ Ejemplo:
 
 ### Mensual: Auditoría de salud
 
-```
+```text
 /ai-dev-os-audit
 ```
 
@@ -223,7 +231,7 @@ Verificaciones:
 
 ### Trimestral: Evolución espiral SECI
 
-```
+```text
 /ai-dev-os-evolve
 ```
 
@@ -231,7 +239,7 @@ Analiza commits recientes y patrones de revisión para proponer actualizaciones 
 
 ### Semanal/Mensual: Informe de cumplimiento
 
-```
+```text
 /ai-dev-os-report 1w
 /ai-dev-os-report 1m
 ```
