@@ -65,3 +65,7 @@ When the user requests JSON output (e.g., `--json` or "output as JSON"), format 
 ```
 
 This enables CI/CD integration (e.g., GitHub Actions can parse the output and fail the build on violations).
+
+## Language
+
+Respond in the same language as the project's CLAUDE.md file.

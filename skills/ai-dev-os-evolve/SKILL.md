@@ -36,3 +36,7 @@ Derive principles from individual cases:
 ### 4. Report + Present Diff
 
 Ask "Would you like to apply the following updates?" and apply after approval.
+
+## Language
+
+Respond in the same language as the project's CLAUDE.md file.

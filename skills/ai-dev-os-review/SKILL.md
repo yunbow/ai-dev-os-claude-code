@@ -95,3 +95,7 @@ If the review passes, offer to draft a PR description:
 ### PR Description Draft
 > [Auto-generated if review passes]
 ```
+
+## Language
+
+Respond in the same language as the project's CLAUDE.md file.

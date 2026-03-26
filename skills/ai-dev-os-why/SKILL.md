@@ -53,3 +53,7 @@ Identify the philosophical value that the principle is rooted in.
 📝 Before/After:
   [Code examples]
 ```
+
+## Language
+
+Respond in the same language as the project's CLAUDE.md file.

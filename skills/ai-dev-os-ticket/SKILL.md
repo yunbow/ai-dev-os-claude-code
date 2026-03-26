@@ -184,3 +184,7 @@ Exit plan mode after the ticket is created. Do NOT proceed to implementation.
 Inform the user:
 > Ticket created. When ready to implement, use `/ai-dev-os-plan` with this ticket as context,
 > or assign it to a team member / future session.
+
+## Language
+
+Respond in the same language as the project's CLAUDE.md file.

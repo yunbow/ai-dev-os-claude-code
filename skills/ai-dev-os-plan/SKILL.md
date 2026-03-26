@@ -130,3 +130,7 @@ Upon approval:
 ### 10. Suggest Follow-up
 
 Recommend the user run `/ai-dev-os-check` for a full compliance verification before committing.
+
+## Language
+
+Respond in the same language as the project's CLAUDE.md file.

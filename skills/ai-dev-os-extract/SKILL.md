@@ -59,3 +59,7 @@ Classify patterns:
 
 ### Add these rules? [Y/n/edit]
 ```
+
+## Language
+
+Respond in the same language as the project's CLAUDE.md file.

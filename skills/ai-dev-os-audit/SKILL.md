@@ -64,3 +64,7 @@ agent: general-purpose
 1. [Priority: High] ...
 2. [Priority: Medium] ...
 ```
+
+## Language
+
+Respond in the same language as the project's CLAUDE.md file.

@@ -72,3 +72,7 @@ ai-dev-os/
 ### 5. Git Submodule Setup (Optional)
 
 - For managing ai-dev-os as a separate repository
+
+## Language
+
+Respond in the same language as the project's CLAUDE.md file.
